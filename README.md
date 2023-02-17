@@ -31,7 +31,7 @@ Images used in this project you can find [here](https://data.mendeley.com/datase
 
 This datasets contain images depicting four weather phenomena such as:
 * Rain
-* Clody
+* Cloudy
 * Sunrise
 * Sunshine
 
@@ -107,7 +107,7 @@ Accuracy plot depending on epochs:
 #### 6️⃣ At the end I can make prediction of weather phenomena in test images: 
 ![image](https://user-images.githubusercontent.com/122997699/219766017-abc15ad2-ed5a-48d5-bece-a1782ac894d9.png)
 
-
+In this case image classification is correct. 
 
 ## Next goals 🏆⌛
 #### * Increasing the test dataset

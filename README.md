@@ -11,19 +11,20 @@
 
 In this project I use images depicting weather phenomena to image classification. I use TensorFlow and EfficientNet B0 pretrained model. 
 
-For the time being I predict a weather phenomenon for four pictures:
+For the time being I predict a weather phenomenon for twelf pictures, three for each weather phenomena. 
+
 
 #### - Rain
-<img src="https://user-images.githubusercontent.com/122997699/219761127-3bf7a322-b407-439f-9ce6-12e66270b87a.jpg" width="500" height="500">
+<img src="https://user-images.githubusercontent.com/122997699/219761127-3bf7a322-b407-439f-9ce6-12e66270b87a.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870248-fbb5e6dd-0ad7-42ad-9faf-35ce52ff3921.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870251-7174a839-4d0f-4390-961e-643c7a98d59b.png" width="250" height="250"/>
 
 #### - Cloudy
-<img src="https://user-images.githubusercontent.com/122997699/219760695-a9dcd1f4-e28d-44e5-9fe5-c02e18c91f7b.jpg" width="500" height="500">
+<img src="https://user-images.githubusercontent.com/122997699/219870437-b6da9be4-2970-4145-8688-23e7b13080d7.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870440-947f8572-9787-4d36-80eb-713f48c57d24.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870441-72ddabe8-7efd-47cd-93ee-4fcf2af2c6cd.jpg" width="250" height="250"/>
 
 #### - Sunrise
-<img src="https://user-images.githubusercontent.com/122997699/219761626-92e1cdca-670f-4967-926c-2ee9171d421d.jpg" width="500" height="500">
+<img src="https://user-images.githubusercontent.com/122997699/219870641-607e9624-b390-4d26-a678-faf7a3fb870f.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870640-5373ca06-2438-4d01-92c7-4ae8726f2a4f.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870639-783929c6-1471-4eae-b9bd-f77e2ab37700.jpg" width="250" height="250"/>
 
 #### - Shine
-<img src="https://user-images.githubusercontent.com/122997699/219761633-9421f6fc-b297-4ce2-9bb0-b841ac55a06a.jpg" width="500" height="500">
+<img src="https://user-images.githubusercontent.com/122997699/219870608-e6547135-3b33-4e12-8f20-f068e5212384.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870607-5aebbeb2-10f8-4a8b-af8e-c3ce3118cf95.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870606-380dce43-7a5c-46b9-ad42-58b1f9651424.jpg" width="250" height="250"/>
 
 
 ## Dataset📁
@@ -105,7 +106,38 @@ Accuracy plot depending on epochs:
 ![Figure_1](https://user-images.githubusercontent.com/122997699/219765766-351b590c-b667-46fe-ae68-44ec1994406a.png)
 
 #### 6️⃣ At the end I can make prediction of weather phenomena in test images: 
-![image](https://user-images.githubusercontent.com/122997699/219766017-abc15ad2-ed5a-48d5-bece-a1782ac894d9.png)
+``` python
+prediction=model.predict(test)
+for i in range(test_img_count):
+    score = prediction[i]
+    print("The weather in the picture looks like: {} with a {:.2f} percent confidence."
+    .format(class_names[np.argmax(score)], 100 * np.max(score)))
+    plt.figure(figsize=(5, 5))
+    for images, labels in test.take(1):
+        ax = plt.subplot()
+        plt.imshow(images[i].numpy().astype("uint8"))
+        plt.title(class_names[np.argmax(score)])
+``` 
+
+Classification results
+
+![image](https://user-images.githubusercontent.com/122997699/219870799-8a816451-c05c-40d3-ac89-26d5a3067816.png)
+
+Test photos with classification in the title of the chart.
+
+![Figure_1](https://user-images.githubusercontent.com/122997699/219870950-16c6c714-5cd2-44f8-8b23-4c466d18dcc1.png)
+![Figure_2](https://user-images.githubusercontent.com/122997699/219870951-a85c1c95-886f-4d83-962d-6808ecaf4d07.png)
+![Figure_3](https://user-images.githubusercontent.com/122997699/219870952-ccebf1d6-0d3f-4169-9d8a-f0160e609d50.png)
+![Figure_4](https://user-images.githubusercontent.com/122997699/219870953-e63a4c14-da78-42a4-8cdd-9c94f61a3d31.png)
+![Figure_5](https://user-images.githubusercontent.com/122997699/219870955-bd515fac-9437-4879-b625-ad580d437d33.png)
+![Figure_6](https://user-images.githubusercontent.com/122997699/219870956-7373dec3-c99e-45a0-9bbb-50df1024c448.png)
+![Figure_8](https://user-images.githubusercontent.com/122997699/219870957-306f9ca8-7e4c-48a4-9500-fa573342c5e0.png)
+![Figure_9](https://user-images.githubusercontent.com/122997699/219870958-54d2b0d4-6ee5-49d4-b5ac-1f1a9893bf55.png)
+![Figure_10](https://user-images.githubusercontent.com/122997699/219870960-65194ec2-71d4-4c1b-9a6a-63dd86cbb7fa.png)
+![Figure_11](https://user-images.githubusercontent.com/122997699/219870961-f6ce2cc1-a762-42e4-8fb6-4c9b226354e1.png)
+![Figure_12](https://user-images.githubusercontent.com/122997699/219870962-8ef92e18-cf85-4b5b-b74a-f027a6acca79.png)
+
+
 
 In this case image classification is correct. 
 

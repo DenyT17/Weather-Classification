@@ -1,4 +1,5 @@
 import tensorflow as tf
+from keras.utils import load_img, img_to_array
 from tensorflow import keras
 from tensorflow.keras import layers, models
 from keras.preprocessing.image import ImageDataGenerator
@@ -16,26 +17,18 @@ batch_size = 32
 img_size= 224
 
 # Uploading images dataset from direction.
-train = tf.keras.utils.image_dataset_from_directory(r'Weather Classification\Weather',
+train = tf.keras.utils.image_dataset_from_directory(r'C:\Users\Dtopa\OneDrive\Pulpit\Image Classification\Weather Classification\Weather',
                                                                  shuffle=True,
                                                                  batch_size=batch_size,
                                                                  image_size=(img_size,img_size))
-# Uploading  test images.
-def image_load(path,img_size):
-    image = tf.keras.utils.load_img(path,target_size=(img_size,img_size))
-    image = tf.keras.utils.img_to_array(image)
-    image = np.array([image])
-    return image
 
-rain_img_path=r'Weather Classification\Test img\rain.jpg'
-sunshine_img_path=r'Weather Classification\Test img\sunshine.jpg'
-cloudy_img_path=r'Weather Classification\Test img\cloudy.jpg'
-sunrise_img_path=r'Weather Classification\Test img\sunrise.jpg'
-test_rain_img=image_load(rain_img_path,img_size)
-test_sunshine_img=image_load(sunshine_img_path,img_size)
-test_cloudy_img=image_load(cloudy_img_path,img_size)
-test_sunrise_img=image_load(sunrise_img_path,img_size)
 
+
+test =tf.keras.utils.image_dataset_from_directory(r'C:\Users\Dtopa\OneDrive\Pulpit\Image Classification\Weather Classification\Test img',shuffle = False,batch_size=12,
+                              image_size=(img_size,img_size))
+
+test_img_count=len(test.file_paths)
+print(test_img_count)
 # Defining number and names of classes
 NUM_CLASSES=len(train.class_names)
 class_names=train.class_names
@@ -106,21 +99,22 @@ def plot_hist(hist):
     plt.show()
 plot_hist(hist)
 
+
+prediction=model.predict(test)
+for i in range(test_img_count):
+    score = prediction[i]
+    print("The weather in the picture looks like: {} with a {:.2f} percent confidence."
+    .format(class_names[np.argmax(score)], 100 * np.max(score)))
+    plt.figure(figsize=(5, 5))
+    for images, labels in test.take(1):
+        ax = plt.subplot()
+        plt.imshow(images[i].numpy().astype("uint8"))
+        plt.title(class_names[np.argmax(score)])
+plt.show()
+
 # Saving model
-model.save('model1.h5')
-new_model = tf.keras.models.load_model('model1.h5')
+# model.save('model1.h5')
+# new_model = tf.keras.models.load_model('model1.h5')
 
 
-def prediction(img):
-    prediction = model.predict(img)
-    score = tf.nn.softmax(prediction)
-    return print(
-        "The weather in the picture looks like: {} with a {:.2f} percent confidence."
-        .format(class_names[np.argmax(score)], 100 * np.max(score))
-    )
 
-# Predicting weather phenomena in images.
-prediction(test_rain_img)
-prediction(test_cloudy_img)
-prediction(test_sunrise_img)
-prediction(test_sunshine_img)

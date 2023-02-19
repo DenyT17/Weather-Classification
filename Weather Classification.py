@@ -24,7 +24,7 @@ train = tf.keras.utils.image_dataset_from_directory(r'C:\Users\Dtopa\OneDrive\Pu
 
 
 
-test =tf.keras.utils.image_dataset_from_directory(r'C:\Users\Dtopa\OneDrive\Pulpit\Image Classification\Weather Classification\Test img',shuffle = False,batch_size=12,
+test =tf.keras.utils.image_dataset_from_directory(r'C:\Users\Dtopa\OneDrive\Pulpit\Image Classification\Weather Classification\Test img',shuffle = False,batch_size=15,
                               image_size=(img_size,img_size))
 
 test_img_count=len(test.file_paths)
@@ -41,12 +41,13 @@ train = train.skip(train_batches // 5)
 print('Number of train batches: %d' % tf.data.experimental.cardinality(train))
 print('Number of val batches: %d' % tf.data.experimental.cardinality(val))
 
+
 # Defining image augmentation layer
 img_augmentation = Sequential(
     [
-        layers.RandomRotation(factor=0.15),
+        layers.RandomRotation(factor=0.2),
         layers.RandomTranslation(height_factor=0.1, width_factor=0.1),
-        layers.RandomFlip(),
+        layers.RandomFlip("horizontal_and_vertical"),
         layers.RandomContrast(factor=0.1)
     ],
     name="img_augmentation",
@@ -74,7 +75,7 @@ inputs = tf.keras.Input(shape=(img_size,img_size,3))
 x = img_augmentation(inputs)
 x = base_model(x)
 x = global_average_layer(x)
-x = tf.keras.layers.Dropout(0.2)(x)
+x = tf.keras.layers.Dropout(0.3)(x)
 outputs = layers.Dense(NUM_CLASSES, activation="softmax", name="pred")(x)
 model = tf.keras.Model(inputs, outputs)
 model.summary()
@@ -85,7 +86,7 @@ model.compile(
     loss=tf.keras.losses.SparseCategoricalCrossentropy(),metrics=["accuracy"]
     )
 # Training model
-epochs = 10
+epochs = 50
 hist = model.fit(ds_train, epochs=epochs, validation_data=ds_val, verbose=2)
 
 # Accuracy plot depending on epochs
@@ -99,7 +100,11 @@ def plot_hist(hist):
     plt.show()
 plot_hist(hist)
 
-
+plt.figure(figsize=(5, 5))
+plt.plot(hist.history['loss'], label='loss')
+plt.plot(hist.history['val_loss'], label='val_loss')
+plt.legend()
+plt.show()
 prediction=model.predict(test)
 for i in range(test_img_count):
     score = prediction[i]

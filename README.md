@@ -131,11 +131,13 @@ Test photos with classification in the title of the chart.
 ![Figure_4](https://user-images.githubusercontent.com/122997699/219870953-e63a4c14-da78-42a4-8cdd-9c94f61a3d31.png)
 ![Figure_5](https://user-images.githubusercontent.com/122997699/219870955-bd515fac-9437-4879-b625-ad580d437d33.png)
 ![Figure_6](https://user-images.githubusercontent.com/122997699/219870956-7373dec3-c99e-45a0-9bbb-50df1024c448.png)
+![Figure_7](https://user-images.githubusercontent.com/122997699/219871243-f3f3803a-bc5a-47e8-9b27-67410b772913.png)
 ![Figure_8](https://user-images.githubusercontent.com/122997699/219870957-306f9ca8-7e4c-48a4-9500-fa573342c5e0.png)
 ![Figure_9](https://user-images.githubusercontent.com/122997699/219870958-54d2b0d4-6ee5-49d4-b5ac-1f1a9893bf55.png)
 ![Figure_10](https://user-images.githubusercontent.com/122997699/219870960-65194ec2-71d4-4c1b-9a6a-63dd86cbb7fa.png)
 ![Figure_11](https://user-images.githubusercontent.com/122997699/219870961-f6ce2cc1-a762-42e4-8fb6-4c9b226354e1.png)
 ![Figure_12](https://user-images.githubusercontent.com/122997699/219870962-8ef92e18-cf85-4b5b-b74a-f027a6acca79.png)
+
 
 
 

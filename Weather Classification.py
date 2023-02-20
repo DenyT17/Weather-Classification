@@ -24,7 +24,7 @@ train = tf.keras.utils.image_dataset_from_directory(r'C:\Users\Dtopa\OneDrive\Pu
 
 
 
-test =tf.keras.utils.image_dataset_from_directory(r'C:\Users\Dtopa\OneDrive\Pulpit\Image Classification\Weather Classification\Test img',shuffle = False,batch_size=15,
+test =tf.keras.utils.image_dataset_from_directory(r'C:\Users\Dtopa\OneDrive\Pulpit\Image Classification\Weather Classification\Test img',shuffle = False,batch_size=25,
                               image_size=(img_size,img_size))
 
 test_img_count=len(test.file_paths)
@@ -86,9 +86,10 @@ model.compile(
     loss=tf.keras.losses.SparseCategoricalCrossentropy(),metrics=["accuracy"]
     )
 # Training model
-epochs = 50
+epochs = 5
 hist = model.fit(ds_train, epochs=epochs, validation_data=ds_val, verbose=2)
-
+evaluate=model.evaluate(test)
+print(evaluate)
 # Accuracy plot depending on epochs
 def plot_hist(hist):
     plt.plot(hist.history["accuracy"])

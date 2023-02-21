@@ -30,6 +30,8 @@ This datasets contain images depicting four weather phenomena such as:
 * Sunrise
 * Sunshine
 
+Pictures of snow I found and downloaded myself from the Internet.
+
 I separated the photos into appropriate directories which I named accordingly. In futur i want extend the dataset with other weather phenomena.
 
 ## The method of project implementation ✅

@@ -11,22 +11,15 @@
 
 In this project I use images depicting weather phenomena to image classification. I use TensorFlow and EfficientNet(B0 - B4) to  pretrained models. 
 
-For the time being I predict a weather phenomenon for twenty pictures, five for each weather phenomena. 
+When add few new weather and evaluate accuracy will be satisfactory phenomene I will want to use webcam from diferent countries as images to prediction. 
 
-#### - Rain
-<img src="https://user-images.githubusercontent.com/122997699/219761127-3bf7a322-b407-439f-9ce6-12e66270b87a.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870248-fbb5e6dd-0ad7-42ad-9faf-35ce52ff3921.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870251-7174a839-4d0f-4390-961e-643c7a98d59b.png" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220079142-7e1984e6-3648-481f-9fce-401f11b3d079.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220079043-7cdf53fb-4f3c-4875-a8db-120be94d028c.jpg" width="250" height="250"/>
+For the time being I predict this weather phenomenon :
+- Rain
+- Cloudy
+- Sunrise
+- Shine
+- Snow
 
-#### - Cloudy
-<img src="https://user-images.githubusercontent.com/122997699/219870437-b6da9be4-2970-4145-8688-23e7b13080d7.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870440-947f8572-9787-4d36-80eb-713f48c57d24.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870441-72ddabe8-7efd-47cd-93ee-4fcf2af2c6cd.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220079485-56d3a007-7a1c-4d05-92f7-26fbcdcd6496.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220079491-594ec293-4a5b-4d05-ae52-40bac0891d46.jpg" width="250" height="250"/>
-
-#### - Sunrise
-<img src="https://user-images.githubusercontent.com/122997699/219870641-607e9624-b390-4d26-a678-faf7a3fb870f.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870640-5373ca06-2438-4d01-92c7-4ae8726f2a4f.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870639-783929c6-1471-4eae-b9bd-f77e2ab37700.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220081182-5a1265ba-f7a9-459e-9416-d41b4beac76e.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220081161-d2f35f51-0a87-42ab-a0ce-53d2a6e2a039.jpg" width="250" height="250"/>
-
-#### - Shine
-<img src="https://user-images.githubusercontent.com/122997699/219870608-e6547135-3b33-4e12-8f20-f068e5212384.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870607-5aebbeb2-10f8-4a8b-af8e-c3ce3118cf95.jpg" width="250" height="250"/>  <img src="https://user-images.githubusercontent.com/122997699/219870606-380dce43-7a5c-46b9-ad42-58b1f9651424.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220081457-30e69e22-8c1b-4816-a766-8f53501cfa03.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220081462-21dfa264-b845-45bc-9b8f-d804e5a4d5bc.jpg" width="250" height="250"/>
-
-#### - Snow
-<img src="https://user-images.githubusercontent.com/122997699/220081707-8eae284b-d066-4f33-af1a-2e72658e07ba.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220081690-cf79f1a9-1007-40e4-bd43-d42e7ce92c6a.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220081702-252912e8-22c3-41a5-a6d6-dc496598043d.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220081697-e870fef0-0539-4dbd-bb26-9bf2dc81c5b7.jpg" width="250" height="250"/> <img src="https://user-images.githubusercontent.com/122997699/220081693-101f7c0e-0772-4d89-bb3e-570e6d8226c7.jpg" width="250" height="250"/>
 
 ## Dataset📁
 Images used in this project you can find [here](https://data.mendeley.com/datasets/4drtyfjtfy/1)
@@ -91,7 +84,7 @@ Model summary:
 
 ![image](https://user-images.githubusercontent.com/122997699/219765405-9f8cd4f7-d327-46fd-8ff3-287c452378d6.png)
 
-#### 5️⃣ Now I must compile and train my model: 
+#### 5️⃣ Now I must compile,train and save my model: 
 ``` python
 model.compile(
     optimizer = tf.keras.optimizers.Adam(learning_rate=1e-2),
@@ -100,36 +93,20 @@ model.compile(
 epochs = 10
 hist = model.fit(ds_train, epochs=epochs, validation_data=ds_val, verbose=2)  
 ``` 
-![image](https://user-images.githubusercontent.com/122997699/219765706-629efddb-8cfc-4172-949e-1fed3392ec0b.png)
 
-Accuracy plot depending on epochs: 
+Training results for 10 epochs: 
+#### EfficientNetB0
+![EN0 Accuracy](https://user-images.githubusercontent.com/122997699/220388523-d3b8e93a-a051-4e51-85fd-cb73328e3028.png) 
+![EN0 Loss](https://user-images.githubusercontent.com/122997699/220388662-291be01c-0d86-432c-a355-66d39960252d.png)
 
-![Figure_1](https://user-images.githubusercontent.com/122997699/219765766-351b590c-b667-46fe-ae68-44ec1994406a.png)
+#### EfficientNetB1
 
-#### 6️⃣ At the end I can make prediction of weather phenomena in test images: 
-``` python
-prediction=model.predict(test)
-for i in range(test_img_count):
-    score = prediction[i]
-    print("The weather in the picture looks like: {} with a {:.2f} percent confidence."
-    .format(class_names[np.argmax(score)], 100 * np.max(score)))
-    plt.figure(figsize=(5, 5))
-    for images, labels in test.take(1):
-        ax = plt.subplot()
-        plt.imshow(images[i].numpy().astype("uint8"))
-        plt.title(class_names[np.argmax(score)])
-``` 
+![EN1 Accuracy](https://user-images.githubusercontent.com/122997699/220388958-38d8f065-0b7b-4dc0-9359-028fae2d41e3.png)
+![EN1 Loss](https://user-images.githubusercontent.com/122997699/220388964-847abb88-dd42-4480-89a6-8b92a993e59a.png)
 
-Classification results
-
-![image](https://user-images.githubusercontent.com/122997699/220099904-b47772dc-652c-4f04-8aad-7b21415a313d.png)
-
-At this case, model made three bad image classification. 
- 
+#### EfficientNetB2
 
 ## Next goals 🏆⌛
-#### * Increasing the test dataset
-#### * Accuracy check for a larger set of test data
-#### * Increasing accuracy with largest test dataset and new weather phenomena
-#### * Added new weather phenomena
+#### * Added new weather phenomena.
 #### * Accuracy check for other pretrained models. 
+#### * Prediction weather phenomene to images from webcam from different countries.

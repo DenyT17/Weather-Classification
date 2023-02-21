@@ -11,7 +11,7 @@
 
 In this project I use images depicting weather phenomena to image classification. I use TensorFlow and EfficientNet(B0 - B4) to  pretrained models. 
 
-When add few new classes and evaluate accuracy will be satisfactory phenomene, I will want to predict weather phenomena in images from YouTube natural videos which showing the landscape.  
+When I will add few new classes and evaluate accuracy will be satisfactory, I will want to predict weather phenomena in images from YouTube videos which showing the landscape.  
 
 For the time being I predict this weather phenomenon :
 - Rain

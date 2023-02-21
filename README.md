@@ -9,7 +9,7 @@
 
 ## Description ❔❓
 
-In this project I use images depicting weather phenomena to image classification. I use TensorFlow and EfficientNet B0 pretrained model. 
+In this project I use images depicting weather phenomena to image classification. I use TensorFlow and EfficientNet(B0 - B4) to  pretrained models. 
 
 For the time being I predict a weather phenomenon for twenty pictures, five for each weather phenomena. 
 
@@ -132,3 +132,4 @@ At this case, model made three bad image classification.
 #### * Accuracy check for a larger set of test data
 #### * Increasing accuracy with largest test dataset and new weather phenomena
 #### * Added new weather phenomena
+#### * Accuracy check for other pretrained models. 

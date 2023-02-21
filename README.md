@@ -11,7 +11,7 @@
 
 In this project I use images depicting weather phenomena to image classification. I use TensorFlow and EfficientNet(B0 - B4) to  pretrained models. 
 
-When add few new weather and evaluate accuracy will be satisfactory phenomene I will want to use webcam from diferent countries as images to prediction. 
+When add few new classes and evaluate accuracy will be satisfactory phenomene, I will want to predict weather phenomena in images from YouTube natural videos which showing the landscape.  
 
 For the time being I predict this weather phenomenon :
 - Rain
@@ -113,4 +113,4 @@ Training results for 10 epochs:
 ## Next goals 🏆⌛
 #### * Added new weather phenomena.
 #### * Accuracy check for other pretrained models. 
-#### * Prediction weather phenomene to images from webcam from different countries.
+#### * Prediction weather phenomene to images from YouTube videos which showing the landscape.

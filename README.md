@@ -105,6 +105,10 @@ Training results for 10 epochs:
 ![EN1 Loss](https://user-images.githubusercontent.com/122997699/220388964-847abb88-dd42-4480-89a6-8b92a993e59a.png)
 
 #### EfficientNetB2
+![EN2 Accuracy](https://user-images.githubusercontent.com/122997699/220392380-3dd7f318-191b-4e3e-a93e-2213c9aa4adc.png)
+![EN2 Loss](https://user-images.githubusercontent.com/122997699/220392389-0a572268-46b6-4df4-8b54-d2887cd81d88.png)
+
+
 
 ## Next goals 🏆⌛
 #### * Added new weather phenomena.

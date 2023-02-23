@@ -102,10 +102,54 @@ I used EfficentNet pretrained models from B0 to B4, below are the prediction res
 
 Each of pretrained models, give accucary above 90 %. 
 
+## Testing images extracted from YouTube videos. 
 
+In this case I must use PyTube and OpenCv2 libraries, to have the opportunities for download video from Youtube.
+I create two function: 
+* Download - thanks to this function I can download video from Youtube and save it in chosen directory.
+```python
+def Download(link,path):
+    youtubeObject = YouTube(link)
+    youtubeObject = youtubeObject.streams.get_highest_resolution()
+    youtubeObject.download(path)
+    print("Download is completed successfully, video : {0} has been saved in {1}"
+          .format(youtubeObject.title,path))
+```
+* Get_Frame - this function extract images from video, and save them in specified directory. I added functionality thanks to witch I can specified how many images per second will be extracted.
+```python
+def Get_Frame(path,img_name,img_per_s):
+    cam = cv2.VideoCapture(path)
+    # Calculation of video duration
+    fps = cam.get(cv2.CAP_PROP_FPS)
+    frame_count = int(cam.get(cv2.CAP_PROP_FRAME_COUNT))
+    duration = frame_count / fps
+    # Creating new folder from images, if it doesn't exist
+    if not os.path.exists('test_img_YT/'+img_name):
+        os.makedirs('test_img_YT/'+img_name)
+        
+    currentframe = 1
+    img_number=0
 
+    # Saving chosen number of images per second
+    while (True):
+        ret, frame = cam.read()
+
+        if ret:
+            if currentframe % (30/img_per_s) ==0:
+                name = 'test_img_YT/'+img_name+'/'+ img_name + str(img_number) + '.jpg'
+                print('Creating...' + name)
+                cv2.imwrite(name, frame)
+                img_number+=1
+            currentframe += 1
+        else:
+            break
+    cam.release()
+    cv2.destroyAllWindows()
+```
+Both of this function are in YoutubeDownload.py file. 
+
+#### In Class_img_for_YT files I download videos and extract images from them. Next I make predict on weather phenomena on this images. Unfortunately in this moments accuracy of prediction very small so I will must modify my model.  
 
 ## Next goals 🏆⌛
 #### * Added new weather phenomena.
-#### * Accuracy check for other pretrained models. 
-#### * Prediction weather phenomene to images from YouTube videos which showing the landscape.
+#### * Increase accuracy from test image from Youtube videos.

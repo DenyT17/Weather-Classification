@@ -96,19 +96,11 @@ epochs = 10
 hist = model.fit(ds_train, epochs=epochs, validation_data=ds_val, verbose=2)  
 ``` 
 
-Training results for 10 epochs: 
-#### EfficientNetB0
-![EN0 Accuracy](https://user-images.githubusercontent.com/122997699/220388523-d3b8e93a-a051-4e51-85fd-cb73328e3028.png) 
-![EN0 Loss](https://user-images.githubusercontent.com/122997699/220388662-291be01c-0d86-432c-a355-66d39960252d.png)
 
-#### EfficientNetB1
+I used EfficentNet pretrained models from B0 to B4, below are the prediction results for the test data:
+![image](https://user-images.githubusercontent.com/122997699/220909234-5bd81bb2-6411-4fef-890b-89a807be21ca.png)
+Each of pretrained models, give accucary above 90 %. 
 
-![EN1 Accuracy](https://user-images.githubusercontent.com/122997699/220388958-38d8f065-0b7b-4dc0-9359-028fae2d41e3.png)
-![EN1 Loss](https://user-images.githubusercontent.com/122997699/220388964-847abb88-dd42-4480-89a6-8b92a993e59a.png)
-
-#### EfficientNetB2
-![EN2 Accuracy](https://user-images.githubusercontent.com/122997699/220392380-3dd7f318-191b-4e3e-a93e-2213c9aa4adc.png)
-![EN2 Loss](https://user-images.githubusercontent.com/122997699/220392389-0a572268-46b6-4df4-8b54-d2887cd81d88.png)
 
 
 

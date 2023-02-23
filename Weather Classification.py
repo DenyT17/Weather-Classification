@@ -128,7 +128,7 @@ B4=model_B4.evaluate(test)
 
 # Printing accuracy and loss for each models
 print('EfficientNetB0 accuracy is {1}, and loss is {0}'.format(B0[0], B0[1]))
-print('EfficientNetB1 accuracy is {1}, and loss is {0}'.format(B1[0], B0[1]))
-print('EfficientNetB2 accuracy is {1}, and loss is {0}'.format(B2[0], B0[1]))
-print('EfficientNetB3 accuracy is {1}, and loss is {0}'.format(B3[0], B0[1]))
-print('EfficientNetB4 accuracy is {1}, and loss is {0}'.format(B4[0], B0[1]))
+print('EfficientNetB1 accuracy is {1}, and loss is {0}'.format(B1[0], B1[1]))
+print('EfficientNetB2 accuracy is {1}, and loss is {0}'.format(B2[0], B2[1]))
+print('EfficientNetB3 accuracy is {1}, and loss is {0}'.format(B3[0], B3[1]))
+print('EfficientNetB4 accuracy is {1}, and loss is {0}'.format(B4[0], B4[1]))

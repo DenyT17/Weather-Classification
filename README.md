@@ -99,6 +99,7 @@ hist = model.fit(ds_train, epochs=epochs, validation_data=ds_val, verbose=2)
 
 I used EfficentNet pretrained models from B0 to B4, below are the prediction results for the test data:
 ![image](https://user-images.githubusercontent.com/122997699/220909234-5bd81bb2-6411-4fef-890b-89a807be21ca.png)
+
 Each of pretrained models, give accucary above 90 %. 
 
 

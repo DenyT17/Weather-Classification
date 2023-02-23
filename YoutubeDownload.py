@@ -18,8 +18,8 @@ def Get_Frame(path,img_name,img_per_s):
     frame_count = int(cam.get(cv2.CAP_PROP_FRAME_COUNT))
     duration = frame_count / fps
     # Creating new folder from images, if it doesn't exist
-    if not os.path.exists('data/'+img_name):
-        os.makedirs('data/'+img_name)
+    if not os.path.exists('test_img_YT/'+img_name):
+        os.makedirs('test_img_YT/'+img_name)
 
     currentframe = 1
     img_number=0
@@ -30,7 +30,7 @@ def Get_Frame(path,img_name,img_per_s):
 
         if ret:
             if currentframe % (30/img_per_s) ==0:
-                name = './data/'+img_name+'/'+ img_name + str(img_number) + '.jpg'
+                name = 'test_img_YT/'+img_name+'/'+ img_name + str(img_number) + '.jpg'
                 print('Creating...' + name)
                 cv2.imwrite(name, frame)
                 img_number+=1

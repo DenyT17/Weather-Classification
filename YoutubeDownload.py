@@ -11,7 +11,6 @@ def Download(link,path):
           .format(youtubeObject.title,path))
 # Function for extract image from video
 def Get_Frame(path,img_name,img_per_s):
-
     cam = cv2.VideoCapture(path)
     # Calculation of video duration
     fps = cam.get(cv2.CAP_PROP_FPS)

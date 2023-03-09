@@ -9,7 +9,7 @@
 
 ## Description ❔❓
 
-In this project I use images depicting weather phenomena to image classification. I use TensorFlow and EfficientNet(B0 - B4) to  pretrained models. 
+In this project I use images depicting weather phenomena to classifier image phenomena on it. I use TensorFlow and EfficientNet(B0 - B4) to  pretrained models. 
 
 When I will add few new classes and evaluate accuracy will be satisfactory, I will want to predict weather phenomena in images from YouTube videos which showing the landscape.  
 
